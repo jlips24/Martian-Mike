@@ -10,8 +10,8 @@ config_version=5
 
 [application]
 
-config/name="Matian Mike"
-run/main_scene="res://scenes/level.tscn"
+config/name="Martian Mike"
+run/main_scene="res://scenes/start_menu.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://assets/textures/player/Jump (32x32).png"
 
