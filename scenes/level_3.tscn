@@ -12,6 +12,7 @@
 
 [node name="Level_3" type="Node2D"]
 script = ExtResource("1_cuw1e")
+is_final_level = true
 
 [node name="BG" parent="." instance=ExtResource("1_jtnwr")]
 bg_texture = ExtResource("3_xw84c")
