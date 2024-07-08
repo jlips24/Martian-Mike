@@ -1,8 +1,9 @@
-[gd_scene load_steps=13 format=3 uid="uid://4ygxqib24f61"]
+[gd_scene load_steps=14 format=3 uid="uid://4ygxqib24f61"]
 
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_lb1cb"]
 [ext_resource type="PackedScene" uid="uid://ccbvoxp8tbaa" path="res://scenes/bg.tscn" id="2_ara66"]
 [ext_resource type="PackedScene" uid="uid://dxkauduweg4ww" path="res://scenes/player.tscn" id="2_iwi1v"]
+[ext_resource type="PackedScene" uid="uid://dlw61gxiagpp8" path="res://scenes/level_2.tscn" id="2_shk1b"]
 [ext_resource type="Texture2D" uid="uid://cbpgr286sdqpl" path="res://icon.svg" id="3_8l11a"]
 [ext_resource type="PackedScene" uid="uid://24oag1odwl2o" path="res://scenes/jump_pad.tscn" id="4_xwvu6"]
 [ext_resource type="PackedScene" uid="uid://carugyqgxnfee" path="res://scenes/saw.tscn" id="5_e3pi8"]
@@ -19,8 +20,10 @@ size = Vector2(2381, 20)
 
 [node name="Level" type="Node2D"]
 script = ExtResource("1_lb1cb")
+next_level = ExtResource("2_shk1b")
 
 [node name="BG" parent="." instance=ExtResource("2_ara66")]
+scroll_offset = Vector2(-191.935, 373)
 
 [node name="Ground" type="StaticBody2D" parent="."]
 position = Vector2(-107, -86)
