@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://egsq5r7rnyr5"]
+[gd_scene load_steps=10 format=3 uid="uid://egsq5r7rnyr5"]
 
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_cuw1e"]
 [ext_resource type="PackedScene" uid="uid://ccbvoxp8tbaa" path="res://scenes/bg.tscn" id="1_jtnwr"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://d0hfpgn5v54us" path="res://scenes/exit.tscn" id="3_h15by"]
 [ext_resource type="Texture2D" uid="uid://cwr2p78425twa" path="res://assets/textures/bg/Brown.png" id="3_xw84c"]
 [ext_resource type="PackedScene" uid="uid://c18gwn3kkr6ma" path="res://scenes/start.tscn" id="4_e88qm"]
+[ext_resource type="PackedScene" uid="uid://tocv8akyc0nk" path="res://scenes/ui_layer.tscn" id="4_igspe"]
 [ext_resource type="PackedScene" uid="uid://dxkauduweg4ww" path="res://scenes/player.tscn" id="5_dddrt"]
 [ext_resource type="PackedScene" uid="uid://bjclv1hksagp" path="res://scenes/tile_map.tscn" id="6_k2mei"]
 
@@ -14,6 +15,8 @@ script = ExtResource("1_cuw1e")
 
 [node name="BG" parent="." instance=ExtResource("1_jtnwr")]
 bg_texture = ExtResource("3_xw84c")
+
+[node name="UILayer" parent="." instance=ExtResource("4_igspe")]
 
 [node name="Deathzone" parent="." instance=ExtResource("2_yfgud")]
 
