@@ -44,3 +44,5 @@ position = Vector2(1210, 218)
 
 [node name="Player" parent="." instance=ExtResource("10_rs41o")]
 position = Vector2(409, 135)
+
+[connection signal="unpause" from="UILayer" to="." method="_on_ui_layer_unpause"]

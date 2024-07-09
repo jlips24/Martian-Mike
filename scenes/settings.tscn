@@ -1,0 +1,116 @@
+[gd_scene load_steps=5 format=3 uid="uid://d3axmgnfue8of"]
+
+[ext_resource type="FontFile" uid="uid://b784kvtdpdevu" path="res://assets/fonts/Kenney Pixel Square.ttf" id="1_3ru5h"]
+[ext_resource type="Script" path="res://scripts/settings.gd" id="1_5cciy"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_4faq6"]
+font = ExtResource("1_3ru5h")
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_k450w"]
+font = ExtResource("1_3ru5h")
+
+[node name="Settings" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_5cciy")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.784314)
+
+[node name="MusicVolume" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 0
+
+[node name="MusicVolumeText" type="Label" parent="MusicVolume"]
+layout_mode = 0
+offset_left = 72.0
+offset_top = 40.0
+offset_right = 210.0
+offset_bottom = 64.0
+text = "Music Volume
+"
+label_settings = SubResource("LabelSettings_4faq6")
+horizontal_alignment = 2
+
+[node name="MusicVolumeHSlider" type="HSlider" parent="MusicVolume"]
+layout_mode = 0
+offset_left = 224.0
+offset_top = 48.0
+offset_right = 353.0
+offset_bottom = 64.0
+tick_count = 10
+
+[node name="MusicVolumeLabel" type="Label" parent="MusicVolume"]
+layout_mode = 0
+offset_left = 368.0
+offset_top = 40.0
+offset_right = 408.0
+offset_bottom = 64.0
+text = "99"
+label_settings = SubResource("LabelSettings_k450w")
+
+[node name="SFXVolume" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 0
+
+[node name="SFXVolumeText" type="Label" parent="SFXVolume"]
+layout_mode = 0
+offset_left = 72.0
+offset_top = 88.0
+offset_right = 210.0
+offset_bottom = 112.0
+text = "SFX Volume
+"
+label_settings = SubResource("LabelSettings_4faq6")
+horizontal_alignment = 2
+
+[node name="SFXVolumeHSlider" type="HSlider" parent="SFXVolume"]
+layout_mode = 0
+offset_left = 224.0
+offset_top = 96.0
+offset_right = 353.0
+offset_bottom = 112.0
+tick_count = 10
+
+[node name="SFXVolumeLabel" type="Label" parent="SFXVolume"]
+offset_left = 368.0
+offset_top = 88.0
+offset_right = 408.0
+offset_bottom = 112.0
+text = "99"
+label_settings = SubResource("LabelSettings_k450w")
+
+[node name="ResumeButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 136.0
+offset_top = 200.0
+offset_right = 220.0
+offset_bottom = 232.0
+theme_override_fonts/font = ExtResource("1_3ru5h")
+text = "Resume"
+
+[node name="QuitButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 272.0
+offset_top = 200.0
+offset_right = 324.0
+offset_bottom = 232.0
+theme_override_fonts/font = ExtResource("1_3ru5h")
+text = "Quit"
+
+[connection signal="drag_ended" from="MusicVolume/MusicVolumeHSlider" to="." method="_on_music_volume_h_slider_drag_ended"]
+[connection signal="drag_ended" from="SFXVolume/SFXVolumeHSlider" to="." method="_on_sfx_volume_h_slider_drag_ended"]
+[connection signal="pressed" from="ResumeButton" to="." method="_on_resume_button_pressed"]
+[connection signal="pressed" from="QuitButton" to="." method="_on_quit_button_pressed"]

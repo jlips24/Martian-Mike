@@ -16,6 +16,7 @@ var timer_node = null
 var time_left
 
 var win = false
+var paused = false
 
 func _ready():
 	player = get_tree().get_first_node_in_group("player")
@@ -39,7 +40,7 @@ func _ready():
 	timer_node.start()
 
 func _on_level_timer_timeout():
-	if !win:
+	if !win && !paused:
 		time_left -= 1
 		hud.set_time_label(time_left)
 		if time_left < 0:
@@ -48,8 +49,10 @@ func _on_level_timer_timeout():
 			hud.set_time_label(time_left)
 
 func _process(delta):
-	if Input.is_action_just_pressed("quit"):
-		get_tree().quit()
+	if Input.is_action_just_pressed("pause"):
+		paused = true
+		player.set_active(false)
+		ui_layer.show_settings_screen(true)
 	elif Input.is_action_just_pressed("reset"):
 		get_tree().reload_current_scene()
 
@@ -76,3 +79,8 @@ func _on_exit_body_entered(body):
 				ui_layer.show_win_screen(true)
 			else:
 				get_tree().change_scene_to_packed(next_level)
+
+
+func _on_ui_layer_unpause():
+	paused = false
+	player.set_active(true)

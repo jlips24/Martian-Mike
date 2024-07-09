@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://tocv8akyc0nk"]
+[gd_scene load_steps=5 format=3 uid="uid://tocv8akyc0nk"]
 
 [ext_resource type="Script" path="res://scripts/ui_layer.gd" id="1_exxpc"]
 [ext_resource type="PackedScene" uid="uid://j8fcwuu7lv1o" path="res://scenes/hud.tscn" id="1_o31fq"]
 [ext_resource type="PackedScene" uid="uid://fiq8krdpjc61" path="res://scenes/win_screen.tscn" id="3_8307n"]
+[ext_resource type="PackedScene" uid="uid://d3axmgnfue8of" path="res://scenes/settings.tscn" id="4_j37yg"]
 
 [node name="UILayer" type="CanvasLayer"]
 script = ExtResource("1_exxpc")
@@ -11,3 +12,8 @@ script = ExtResource("1_exxpc")
 
 [node name="WinScreen" parent="." instance=ExtResource("3_8307n")]
 visible = false
+
+[node name="Settings" parent="." instance=ExtResource("4_j37yg")]
+visible = false
+
+[connection signal="hide_settings" from="Settings" to="." method="_on_settings_hide_settings"]

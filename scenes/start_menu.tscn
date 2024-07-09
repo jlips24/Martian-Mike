@@ -1,9 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://bxehige3322ro"]
+[gd_scene load_steps=8 format=3 uid="uid://bxehige3322ro"]
 
 [ext_resource type="PackedScene" uid="uid://ccbvoxp8tbaa" path="res://scenes/bg.tscn" id="1_heh8g"]
 [ext_resource type="Script" path="res://scripts/start_menu.gd" id="1_xvusk"]
 [ext_resource type="Texture2D" uid="uid://cglq0qpmb04fo" path="res://assets/textures/bg/Green.png" id="2_tvcr5"]
 [ext_resource type="FontFile" uid="uid://b784kvtdpdevu" path="res://assets/fonts/Kenney Pixel Square.ttf" id="3_lwt85"]
+[ext_resource type="Texture2D" uid="uid://d4hyg3ohhwfrn" path="res://assets/textures/other/SettingsIcon (32x32).png" id="5_yh8d2"]
+[ext_resource type="PackedScene" uid="uid://d3axmgnfue8of" path="res://scenes/settings.tscn" id="6_gepl7"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_uflgb"]
 font = ExtResource("3_lwt85")
@@ -77,5 +79,20 @@ theme_override_fonts/font = ExtResource("3_lwt85")
 theme_override_font_sizes/font_size = 10
 text = "Quit"
 
+[node name="SettingsButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 440.0
+offset_top = 227.0
+offset_right = 480.0
+offset_bottom = 270.0
+icon = ExtResource("5_yh8d2")
+flat = true
+
+[node name="Settings" parent="." instance=ExtResource("6_gepl7")]
+visible = false
+layout_mode = 1
+
 [connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="SettingsButton" to="." method="_on_settings_button_pressed"]
+[connection signal="hide_settings" from="Settings" to="." method="_on_settings_hide_settings"]
