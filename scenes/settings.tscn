@@ -85,6 +85,7 @@ offset_bottom = 112.0
 tick_count = 10
 
 [node name="SFXVolumeLabel" type="Label" parent="SFXVolume"]
+layout_mode = 0
 offset_left = 368.0
 offset_top = 88.0
 offset_right = 408.0

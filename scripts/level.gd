@@ -19,6 +19,7 @@ var win = false
 var paused = false
 
 func _ready():
+	$UILayer.connect("unpause", _on_ui_layer_unpause)
 	player = get_tree().get_first_node_in_group("player")
 	if player != null:
 		player.global_position = start.get_spawn_pos()
